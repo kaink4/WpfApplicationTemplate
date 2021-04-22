@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfApplicationTemplate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplicationTemplate"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Command="{Binding GetActualDateCommand}" Content="Get Actual Date&#xD;&#xA;" HorizontalAlignment="Left" Margin="27,26,0,0" VerticalAlignment="Top" Height="24" Width="101"/>
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="27,98,0,0" 
+                   Text="{Binding Path=SomeText}" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top" Width="312" Height="119"/>
+        <Button Content="Get Settings" HorizontalAlignment="Left" Margin="168,28,0,0" VerticalAlignment="Top"  Width="146" Command="{Binding GetSettingsCommand}"/>
+
+    </Grid>
+</Window>

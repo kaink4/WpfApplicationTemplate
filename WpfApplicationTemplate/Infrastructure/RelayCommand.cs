@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace WpfApplicationTemplate
+namespace WpfApplicationTemplate.Infrastructure
 {
     public class RelayCommand<T> : ICommand
     {
@@ -24,8 +24,8 @@ namespace WpfApplicationTemplate
 
         public event EventHandler CanExecuteChanged
         {
-            add => CommandManager.RequerySuggested += value; 
-            remove => CommandManager.RequerySuggested -= value; 
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
         }
     }
 

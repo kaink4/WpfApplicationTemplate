@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfApplicationTemplate.Infrastructure;
 using WpfApplicationTemplate.Services;
 using WpfApplicationTemplate.ViewModels;
 
@@ -42,6 +43,7 @@ namespace WpfApplicationTemplate
 
         private void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
             services.AddTransient<MainWindow>();
             services.AddTransient<MainWindowViewModel>();
             services.AddTransient<ISampleService, SampleService>();

@@ -21,11 +21,6 @@ namespace WpfApplicationTemplate
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow() 
-        {
-
-        }
-
         public MainWindow(MainWindowViewModel mainWindowViewModel)
         {
             InitializeComponent();
