@@ -8,8 +8,8 @@ using WpfApplicationTemplate.DataAccess;
 namespace WpfApplicationTemplate.Migrations
 {
     [DbContext(typeof(SampleDbContext))]
-    [Migration("20210424004726_sed")]
-    partial class sed
+    [Migration("20210424145809_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

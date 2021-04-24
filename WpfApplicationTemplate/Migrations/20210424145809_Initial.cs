@@ -18,6 +18,16 @@ namespace WpfApplicationTemplate.Migrations
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 1, "Sample Product 1" });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 2, "Sample Product 2" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

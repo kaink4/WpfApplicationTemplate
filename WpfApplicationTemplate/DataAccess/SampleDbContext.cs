@@ -11,28 +11,22 @@ namespace WpfApplicationTemplate.DataAccess
 {
     public class SampleDbContext : DbContext
     {
-        public SampleDbContext()
-            : base()
-        {
-
-        }
-
         public SampleDbContext(DbContextOptions options) 
-            :base(options)
-        {
+            : base(options)
+        {  }
 
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionbuilder)
-        {
-            if(!optionbuilder.IsConfigured)
-            {
-                optionbuilder.UseSqlite(@"Data Source=SampleDataBase.db");
-            }
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionbuilder)
+        //{
+        //    //if (!optionbuilder.IsConfigured)
+        //    //{
+        //    //    optionbuilder.UseSqlite(@"Data Source=d:\\SampleDataBase.db");
+        //    //}
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Product>().HasData(
                 new Product
                 {

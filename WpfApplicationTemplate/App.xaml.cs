@@ -28,11 +28,7 @@ namespace WpfApplicationTemplate
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            var builder = new ConfigurationBuilder()
-             .SetBasePath(Directory.GetCurrentDirectory())
-             .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-
-            Configuration = builder.Build();
+            Configuration = ConfigurationFactory.GetConfiguration();
 
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);
@@ -43,6 +39,7 @@ namespace WpfApplicationTemplate
             mainWindow.Show();
 
         }
+
         private void ConfigureServices(IServiceCollection services)
         {
             services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));

@@ -41,6 +41,6 @@ namespace WpfApplicationTemplate.ViewModels
             SomeText = JsonSerializer.Serialize(settings);
         });
 
-        public ICommand GetProductsCommand => new RelayCommand(_ => _sampleService.GetProducts());
+        public ICommand GetProductsCommand => new RelayCommand(_ => SomeText = _sampleService.GetProducts());
     }
 }
