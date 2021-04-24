@@ -14,6 +14,7 @@
                    TextWrapping="Wrap" 
                    VerticalAlignment="Top" Width="312" Height="119"/>
         <Button Content="Get Settings" HorizontalAlignment="Left" Margin="168,28,0,0" VerticalAlignment="Top"  Width="146" Command="{Binding GetSettingsCommand}"/>
+        <Button Content="Get Products" HorizontalAlignment="Left" Margin="347,28,0,0" VerticalAlignment="Top"  Width="146" Command="{Binding GetProductsCommand}"/>
 
     </Grid>
 </Window>

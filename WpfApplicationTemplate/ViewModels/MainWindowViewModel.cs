@@ -40,5 +40,7 @@ namespace WpfApplicationTemplate.ViewModels
             var settings = _options.Value;
             SomeText = JsonSerializer.Serialize(settings);
         });
+
+        public ICommand GetProductsCommand => new RelayCommand(_ => _sampleService.GetProducts());
     }
 }
