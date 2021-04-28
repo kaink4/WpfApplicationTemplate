@@ -15,14 +15,6 @@ namespace WpfApplicationTemplate.DataAccess
             : base(options)
         {  }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionbuilder)
-        //{
-        //    //if (!optionbuilder.IsConfigured)
-        //    //{
-        //    //    optionbuilder.UseSqlite(@"Data Source=d:\\SampleDataBase.db");
-        //    //}
-        //}
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -35,23 +35,23 @@ namespace WpfApplicationTemplate
 
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
+            using var context = ServiceProvider.GetService<IDbContextFactory<SampleDbContext>>().CreateDbContext();
+            context.Database.Migrate();
+
             var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
-
         }
 
         private void ConfigureServices(IServiceCollection services)
         {
             services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
 
-            services.AddDbContext<SampleDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SampleDbContext")));
+            services.AddDbContextFactory<SampleDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SampleDbContext")));
 
             services.AddTransient<MainWindow>();
             services.AddTransient<MainWindowViewModel>();
 
             services.AddTransient<ISampleService, SampleService>();
         }
-
-
     }
 }

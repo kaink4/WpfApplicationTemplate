@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,15 +11,19 @@ namespace WpfApplicationTemplate.Services
 {
     public class SampleService : ISampleService
     {
-        private readonly SampleDbContext _context;
+        private readonly IDbContextFactory<SampleDbContext> _contextFactory;
 
-        public SampleService(SampleDbContext context)
+        public SampleService(IDbContextFactory<SampleDbContext> contextFactory)
         {
-            _context = context;
+            _contextFactory = contextFactory;
         }
 
         public string GetCurrentDate() => DateTime.Now.ToLongDateString();
 
-        public string GetProducts() => JsonSerializer.Serialize(_context.Products.ToList());
+        public string GetProducts() 
+        {
+            using var context = _contextFactory.CreateDbContext();
+            return JsonSerializer.Serialize(context.Products.ToList());
+        }
     }
 }
