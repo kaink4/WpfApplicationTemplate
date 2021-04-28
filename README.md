@@ -5,3 +5,4 @@ Includes:
 	- MVVM pattern, 
 	- Command pattern,
 	- Settings (json)
+	- sql - Sqlite
