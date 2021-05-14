@@ -3,7 +3,6 @@
     public interface ISampleService
     {
         string GetCurrentDate();
-
         string GetProducts();
     }
 }

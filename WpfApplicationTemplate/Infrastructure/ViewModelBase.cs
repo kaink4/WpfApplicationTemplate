@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfApplicationTemplate.Infrastructure
 {
-    public abstract class BaseViewModel : INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)

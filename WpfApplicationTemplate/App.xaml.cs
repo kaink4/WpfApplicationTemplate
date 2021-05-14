@@ -45,12 +45,14 @@ namespace WpfApplicationTemplate
         private void ConfigureServices(IServiceCollection services)
         {
             services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
-
             services.AddDbContextFactory<SampleDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SampleDbContext")));
 
-            services.AddTransient<MainWindow>();
-            services.AddTransient<MainWindowViewModel>();
+            services.Scan(s => s.FromCallingAssembly()
+                .AddClasses(c => c.AssignableToAny(typeof(Window), typeof(ViewModelBase)))
+                .AsSelf()
+                .WithTransientLifetime());
 
+            services.AddTransient<IWindowFactory, WindowFactory>();
             services.AddTransient<ISampleService, SampleService>();
         }
     }
