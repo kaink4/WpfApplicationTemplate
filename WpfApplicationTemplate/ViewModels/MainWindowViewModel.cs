@@ -17,7 +17,8 @@ namespace WpfApplicationTemplate.ViewModels
         private readonly ISampleService _sampleService;
         private readonly IOptions<AppSettings> _options;
         private readonly IWindowFactory _windowFactory;
-        private string _someText;
+
+        private string _someText = "";
         public string SomeText
         {
             get => _someText;

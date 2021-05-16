@@ -8,7 +8,7 @@ namespace WpfApplicationTemplate.Infrastructure
 {
     public class AppSettings
     {
-        public string StringSetting { get; set; }
+        public string StringSetting { get; set; } = "";
 
         public int IntegerSetting { get; set; }
 

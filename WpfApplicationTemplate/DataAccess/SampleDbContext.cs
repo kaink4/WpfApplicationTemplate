@@ -9,6 +9,7 @@ using WpfApplicationTemplate.DataAccess.Entities;
 
 namespace WpfApplicationTemplate.DataAccess
 {
+#nullable disable
     public class SampleDbContext : DbContext
     {
         public SampleDbContext(DbContextOptions options) 

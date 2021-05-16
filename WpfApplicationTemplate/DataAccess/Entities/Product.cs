@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfApplicationTemplate.DataAccess.Entities
 {
+#nullable disable
     public class Product
     {
         public int Id { get; set; }

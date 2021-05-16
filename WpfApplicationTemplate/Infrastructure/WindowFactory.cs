@@ -10,10 +10,10 @@ namespace WpfApplicationTemplate.Infrastructure
 {
     public class WindowFactory : IWindowFactory
     {
-        private IServiceProvider _serviceProvider;
+        private readonly IServiceProvider _serviceProvider;
 
         public WindowFactory(IServiceProvider serviceProvider) => _serviceProvider = serviceProvider;
 
-        public T CreateWindow<T>() where T : Window => (T)_serviceProvider.GetService(typeof(T));
+        public T CreateWindow<T>() where T : Window => (T)_serviceProvider.GetRequiredService(typeof(T));
     }
 }
