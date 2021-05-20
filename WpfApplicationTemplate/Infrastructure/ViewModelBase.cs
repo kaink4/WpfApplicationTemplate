@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace WpfApplicationTemplate.Infrastructure
 {
@@ -27,5 +28,15 @@ namespace WpfApplicationTemplate.Infrastructure
                 throw new Exception(msg);
             }
         }
+
+        public ICommand CloseCommand => new RelayCommand<ICloseable>(x =>
+        {
+            if (x == null)
+            {
+                throw new ArgumentNullException(nameof(x), "Parameter is mandatory");
+            }
+
+            x.Close();
+        });
     }
 }

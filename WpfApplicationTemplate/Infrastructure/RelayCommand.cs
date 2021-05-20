@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace WpfApplicationTemplate.Infrastructure
 {
-    public class RelayCommand<T>  : ICommand
+    public class RelayCommand<T> : ICommand
     {
         protected readonly Action<T?> _execute;
         protected readonly Func<T?, bool>? _canExecute;
@@ -20,7 +20,10 @@ namespace WpfApplicationTemplate.Infrastructure
 
         public bool CanExecute(object? parameter) => _canExecute == null || _canExecute((T?)parameter);
 
-        public void Execute(object? parameter) => _execute((T?)parameter);
+        public void Execute(object? parameter)
+        {
+            _execute((T?)parameter);
+        }
 
         public event EventHandler? CanExecuteChanged
         {

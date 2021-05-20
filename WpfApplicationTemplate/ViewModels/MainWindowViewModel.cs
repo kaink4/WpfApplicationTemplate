@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using WpfApplicationTemplate.Infrastructure;
 using WpfApplicationTemplate.Services;
@@ -38,15 +39,10 @@ namespace WpfApplicationTemplate.ViewModels
         }
 
         public ICommand GetActualDateCommand => new RelayCommand(_ => SomeText = _sampleService.GetCurrentDate());
-        public ICommand GetSettingsCommand => new RelayCommand(_ =>
-        {
-            var settings = _options.Value;
-            SomeText = JsonSerializer.Serialize(settings);
-        });
-
+        public ICommand GetSettingsCommand => new RelayCommand(_ => SomeText = JsonSerializer.Serialize(_options.Value));
         public ICommand GetProductsCommand => new RelayCommand(_ => SomeText = _sampleService.GetProducts());
 
-        public ICommand ShowSampleWindowCommand => new RelayCommand<string>(mode =>
+        public ICommand ShowSampleWindowCommand => new RelayCommand<string?>(mode =>
         {
             var sampleWindow = _windowFactory.CreateWindow<SampleWindow>();
             if (mode == "modal")

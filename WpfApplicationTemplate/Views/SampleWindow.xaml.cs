@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApplicationTemplate.Infrastructure;
 using WpfApplicationTemplate.ViewModels;
 
 namespace WpfApplicationTemplate.Views
@@ -18,7 +19,7 @@ namespace WpfApplicationTemplate.Views
     /// <summary>
     /// Interaction logic for SampleWindow.xaml
     /// </summary>
-    public partial class SampleWindow : Window
+    public partial class SampleWindow : Window, ICloseable
     {
         public SampleWindow(SampleWindowViewModel sampleWindowViewModel)
         {
