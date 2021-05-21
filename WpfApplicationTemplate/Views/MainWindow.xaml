@@ -4,14 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplicationTemplate" 
-        xmlns:viewmodels="clr-namespace:WpfApplicationTemplate.ViewModels" 
+        xmlns:viewmodels="clr-namespace:WpfApplicationTemplate.ViewModels" xmlns:views="clr-namespace:WpfApplicationTemplate.Views"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="450" 
         Width="800"
   >
-    
+
     <Window.InputBindings>
         <KeyBinding Key="Esc" 
                     Command="{Binding CloseCommand}" 
@@ -34,6 +34,6 @@
                 Command="{Binding ShowSampleWindowCommand}" 
                 />
         <Button Content="Close App" HorizontalAlignment="Left" Margin="90,364,0,0" VerticalAlignment="Top" Command="{Binding CloseApplicationCommand}"/>
-
+        <views:SampleUserControl HorizontalAlignment="Left" Margin="451,248,0,0" VerticalAlignment="Top" Text="Some nice text" Width="267" Height="90"/>
     </Grid>
 </Window>

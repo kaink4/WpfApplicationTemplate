@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using WpfApplicationTemplate.DataAccess;
 using WpfApplicationTemplate.Infrastructure;
 using WpfApplicationTemplate.Services;
@@ -40,7 +41,7 @@ namespace WpfApplicationTemplate
             services.AddDbContextFactory<SampleDbContext>(options => options.UseSqlite(configuration.GetConnectionString("SampleDbContext")));
 
             services.Scan(s => s.FromCallingAssembly()
-                .AddClasses(c => c.AssignableToAny(typeof(Window), typeof(ViewModelBase)))
+                .AddClasses(c => c.AssignableToAny(typeof(Window), typeof(UserControl), typeof(ViewModelBase)))
                 .AsSelf()
                 .WithTransientLifetime());
 
